@@ -20,7 +20,7 @@
             $query = "insert into usuarios (nome_usuario,senha_usuario) values('$nome','$senha')";
 
             $res = mysqli_query($conn,$query);
-            
+
             if($res){
               header("Location: ./sistema.php");
             }else{
@@ -28,6 +28,18 @@
             }
         }
     ?>
+<?php 
+if(isset($_GET["falha"])){
+  ?>
+  <div class="container">
+    <div class="alert alert-danger" role="alert">
+        <?php echo $_GET['falha']?>
+    </div>
+  </div>
+<?php
+}
+?>
+
 <form action="./inscrever.php" method="post">
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
