@@ -7,13 +7,9 @@
     <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
 <body style="overflow-x: hidden ;">
-    <div class="row">
-        <div class="row">
-            <?php
-                include "./nav.php";
-            ?>
-        </div>
-    </div>
+    <?php
+        include "./nav.php";
+    ?>
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Sistema Estoque</a>
+    <a class="navbar-brand" href="./index.php">Sistema Estoque</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,13 +19,13 @@
       </ul>
       <div class="row">
         <div class="col">
-            <button class="btn btn-primary" type="submit">Entrar</button>
+            <a href="./inscrever.php"><button class="btn btn-primary" type="submit">Inscrever</button></a>
         </div>
         <div class="col">
 
         </div>
         <div class="col">
-            <button class="btn btn-outline-success" type="submit">Login</button>
+            <button class="btn btn-outline-success" type="submit">Entrar</button>
         </div>
       </div>
     </div>
