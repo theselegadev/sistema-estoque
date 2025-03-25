@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de estoque | Entrar</title>
+    <title>Sistema de estoque | Inscrever-se</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -41,6 +41,7 @@ if(isset($_GET["falha"])){
 ?>
 
 <form action="./inscrever.php" method="post">
+  <h3>Criar conta:</h3>
     <div class="row mb-3">
       <label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
       <div class="col-sm-10">

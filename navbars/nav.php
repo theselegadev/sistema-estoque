@@ -25,7 +25,7 @@
 
         </div>
         <div class="col">
-            <button class="btn btn-outline-success" type="submit">Entrar</button>
+            <a href="entrar.php"><button class="btn btn-outline-success" type="submit">Entrar</button></a>
         </div>
       </div>
     </div>
