@@ -6,8 +6,14 @@
     <title>Sistema de estoque</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
 </head>
-<body>
-    
+<body style="overflow-x: hidden ;">
+    <div class="row">
+        <div class="row">
+            <?php
+                include "./nav.php";
+            ?>
+        </div>
+    </div>
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
 </html>
