@@ -9,10 +9,7 @@
 </head>
 <body>
     <?php
-
-use Dom\Mysql;
-
-        include "./nav.php";
+        include "./navbars/nav.php";
         include "./conexao.php";
 
         if(isset($_POST['nome'])){
@@ -22,7 +19,13 @@ use Dom\Mysql;
 
             $query = "insert into usuarios (nome_usuario,senha_usuario) values('$nome','$senha')";
 
-            $res = mysqli_query($conn,$query);    
+            $res = mysqli_query($conn,$query);
+            
+            if($res){
+              header("Location: ./sistema.php");
+            }else{
+              header("Location: ./inscrever.php?falha=Falhou! Sua criação de conta falhou");
+            }
         }
     ?>
 <form action="./inscrever.php" method="post">
