@@ -18,7 +18,7 @@
         if(isset($_GET['saiu'])){
             ?>
                 <div class="container">
-                    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                    <div class="alert alert-secondary alert-dismissible fade show mt-4" role="alert">
                         <?php echo $_GET['saiu']?>   
                         <a href="index.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
                     </div>

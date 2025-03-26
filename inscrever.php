@@ -32,7 +32,7 @@
 if(isset($_GET["falha"])){
   ?>
   <div class="container">
-      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
           <?php echo $_GET['falha']?>   
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>

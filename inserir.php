@@ -22,19 +22,19 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Nome:</span>
-            <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Descrição:</span>
-            <input type="text" class="form-control" placeholder="Descrição" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Descrição" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Quantidade:</span>
-            <input type="number" class="form-control" placeholder="Quantidade" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="number" class="form-control" placeholder="Quantidade" aria-label="Username" aria-describedby="basic-addon1" required>
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Preço:</span>
-            <input type="number" class="form-control" placeholder="Preço" aria-label="Username" aria-describedby="basic-addon1" step="0.01">
+            <input type="number" class="form-control" placeholder="Preço" aria-label="Username" aria-describedby="basic-addon1" step="0.01" required>
         </div>
         <button type="submit" class="btn btn-success">Inserir</button>
     </form>
