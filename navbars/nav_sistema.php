@@ -10,7 +10,7 @@
                 <button class="btn btn-outline-success" type="submit">Pesquisar</button>
             </div>
             <div class="col-4">
-                <button class="btn btn-outline-danger">Sair</button>
+                <a href="./index.php?logado=false"><button class="btn btn-outline-danger">Sair</button></a>
             </div>
         </div>
     </form>

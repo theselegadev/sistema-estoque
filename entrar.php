@@ -12,14 +12,37 @@
     <?php
         include "./navbars/nav.php";
         include "./conexao.php";
+        session_start();
 
         if(isset($_POST['login'])){
             $login = mysqli_escape_string($conn,$_POST['login']);
             $senha = mysqli_escape_string($conn,$_POST['senha']);
 
-            $query = "select (nome_usuario,senha_usuario) from usuarios";
+            $query = "select nome_usuario,senha_usuario from usuarios";
 
-            $dados = mysqli_query($conn,$query);
+            $res = mysqli_query($conn,$query);
+
+            $dados = mysqli_fetch_array($res);
+
+            $isPass = password_verify($senha,$dados['senha_usuario']);
+            
+            if($login == $dados['nome_usuario'] and $isPass){
+                header("Location: ./sistema.php");
+            }else{
+                header("Location: ./entrar.php?falhou=Usuário inesistente");
+            }
+        }
+    ?>
+    <?php
+        if(isset($_GET['falhou'])){
+            ?>
+                <div class="container">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?php echo $_GET['falhou']?>   
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            <?php
         }
     ?>
     <form action="./entrar.php" method="post">
