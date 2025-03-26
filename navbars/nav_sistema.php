@@ -2,6 +2,19 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="./sistema.php">Sistema de estoque</a>
     <div class="row">
+        <div class="col">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestão de Itens
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./inserir.php">Inserir produto</a></li>
+                    <li><a class="dropdown-item" href="./sistema.php">Lista de produtos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>  
+    <div class="row">
         <div class="col-9">
             <div class="row">
                 <form class="d-flex" role="search">

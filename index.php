@@ -9,6 +9,11 @@
 <body style="overflow-x: hidden">
     <?php
         include "./navbars/nav.php";
+        session_start();
+
+        if(!empty($_SESSION['logado'])){
+            header("Location: ./sistema.php");
+        }
 
         if(isset($_GET['saiu'])){
             ?>
