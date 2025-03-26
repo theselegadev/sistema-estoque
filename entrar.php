@@ -18,18 +18,21 @@
             $login = mysqli_escape_string($conn,$_POST['login']);
             $senha = mysqli_escape_string($conn,$_POST['senha']);
 
-            $query = "select nome_usuario,senha_usuario from usuarios";
+            $query = "select * from usuarios where nome_usuario = '$login'";
 
             $res = mysqli_query($conn,$query);
 
-            $dados = mysqli_fetch_array($res);
-
-            $isPass = password_verify($senha,$dados['senha_usuario']);
-            
-            if($login == $dados['nome_usuario'] and $isPass){
-                header("Location: ./sistema.php");
+            if(mysqli_num_rows($res) > 0){
+                $dados = mysqli_fetch_array($res);
+                
+                if(password_verify($senha,$dados['SENHA_USUARIO'])){
+                    $_SESSION['logado'] = true;
+                    header("Location: ./sistema.php");
+                }else{
+                    header("Location: ./entrar.php?falhou=Senha incorreta!");
+                }
             }else{
-                header("Location: ./entrar.php?falhou=Usuário inesistente");
+                header("Location: ./entrar.php?falhou=Usuário inexistente!");
             }
         }
     ?>
