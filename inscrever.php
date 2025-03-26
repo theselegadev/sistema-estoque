@@ -11,21 +11,32 @@
     <?php
         include "./navbars/nav.php";
         include "./conexao.php";
+        session_start();
 
         if(isset($_POST['nome'])){
             $nome = mysqli_escape_string($conn,$_POST['nome']);
             $senha = mysqli_escape_string($conn,$_POST['senha']);
             $senha = password_hash($senha,PASSWORD_BCRYPT);
 
-            $query = "insert into usuarios (nome_usuario,senha_usuario) values('$nome','$senha')";
+            $query = "select * from usuarios where nome_usuario = '$nome'";
 
             $res = mysqli_query($conn,$query);
 
-            if($res){
-              header("Location: ./sistema.php");
+            if(mysqli_num_rows($res)>0){
+              echo "Nome repetido";
+              header("Location: ./inscrever.php?erro=Já tem um usuário com esse nome!");
             }else{
-              header("Location: ./inscrever.php?falha=Falhou! Sua criação de conta falhou");
-            }
+              $query = "insert into usuarios (nome_usuario,senha_usuario) values('$nome','$senha')";
+
+              $res = mysqli_query($conn,$query);
+
+              if($res){
+                header("Location: ./sistema.php");
+                $_SESSION['logado'] = true;
+              }else{
+                header("Location: ./inscrever.php?falha=Falhou! Sua criação de conta falhou");
+              }
+            } 
         }
     ?>
 <?php 
@@ -39,7 +50,19 @@ if(isset($_GET["falha"])){
   </div>
 <?php
 }
+
+if(isset($_GET['erro'])){
+  ?>
+    <div class="container">
+      <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+          <?php echo $_GET['erro']?>   
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+  </div>
+  <?php
+}
 ?>
+
 
 <form action="./inscrever.php" method="post">
   <h3>Criar conta:</h3>
