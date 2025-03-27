@@ -55,7 +55,7 @@
                                 <td><?php echo $dados['QUANTIDADE']?></td>
                                 <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                 <td>
-                                    <button class="btn btn-danger">Deletar</button>
+                                    <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
                                     <button class="btn btn-info">Atualizar</button>
                                 </td>
                             </tr>
@@ -64,7 +64,7 @@
                 ?>
             </tbody>
         </table>
-    </div>  
+    </div>
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
 </html>
