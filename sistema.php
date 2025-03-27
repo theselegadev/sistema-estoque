@@ -26,7 +26,42 @@
             <?php
         }
     ?>
-        
+    <div class="container">
+        <table class="table table-striped table-hover mt-5">
+            <thead>
+                <tr>
+                    <th>Nome:</th>
+                    <th>Descricao:</th>
+                    <th>Quantidade:</th>
+                    <th>Preço:</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Produto</td>
+                    <td>Descricao</td>
+                    <td>Quantidade</td>
+                    <td>Preço</td>
+                    <td>
+                        <button class="btn btn-danger">Deletar</button>
+                        <button class="btn btn-info">Atualizar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Produto</td>
+                    <td>Descricao</td>
+                    <td>Quantidade</td>
+                    <td>Preço</td>
+                    <td>
+                        <button class="btn btn-danger">Deletar</button>
+                        <button class="btn btn-info">Atualizar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>  
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
 </html>
