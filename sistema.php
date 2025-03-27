@@ -9,6 +9,7 @@
 <body>
     <?php
         include "./navbars/nav_sistema.php";
+        include "./conexao.php";
         session_start();
         
         if(empty($_SESSION['logado'])){
@@ -39,26 +40,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Produto</td>
-                    <td>Descricao</td>
-                    <td>Quantidade</td>
-                    <td>Preço</td>
-                    <td>
-                        <button class="btn btn-danger">Deletar</button>
-                        <button class="btn btn-info">Atualizar</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Produto</td>
-                    <td>Descricao</td>
-                    <td>Quantidade</td>
-                    <td>Preço</td>
-                    <td>
-                        <button class="btn btn-danger">Deletar</button>
-                        <button class="btn btn-info">Atualizar</button>
-                    </td>
-                </tr>
+                <?php
+                    $query = "select * from produtos";
+
+                    $res = mysqli_query($conn,$query);
+            
+                    while($dados = mysqli_fetch_array($res)){
+                        ?>
+                            <tr>
+                                <td><?php echo $dados['NOME_PRODUTO']?></td>
+                                <td><?php echo $dados['DESCRICAO_PRODUTO']?></td>
+                                <td><?php echo $dados['QUANTIDADE']?></td>
+                                <td><?php echo $dados['PRECO_PRODUTO']?></td>
+                                <td>
+                                    <button class="btn btn-danger">Deletar</button>
+                                    <button class="btn btn-info">Atualizar</button>
+                                </td>
+                            </tr>
+                        <?php
+                    }
+                ?>
             </tbody>
         </table>
     </div>  
