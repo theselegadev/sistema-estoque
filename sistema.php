@@ -38,6 +38,16 @@
             </div>
             <?php
         }
+        if(isset($_GET['atualizou'])){
+            ?>
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                    <?php echo $_GET['atualizou']?>   
+                    <a href="./sistema.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+                </div>
+            </div>
+            <?php
+        }
     ?>
     <div class="container">
         <table class="table table-striped table-hover mt-5">
