@@ -27,6 +27,7 @@
                 
                 if(password_verify($senha,$dados['SENHA_USUARIO'])){
                     $_SESSION['logado'] = true;
+                    $_SESSION['id_usuario'] = $dados['ID_USUARIO'];
                     header("Location: ./sistema.php");
                 }else{
                     header("Location: ./entrar.php?falhou=Senha incorreta!");

@@ -23,7 +23,6 @@
             $res = mysqli_query($conn,$query);
 
             if(mysqli_num_rows($res)>0){
-              echo "Nome repetido";
               header("Location: ./inscrever.php?erro=Já tem um usuário com esse nome!");
             }else{
               $query = "insert into usuarios (nome_usuario,senha_usuario) values('$nome','$senha')";
@@ -31,6 +30,11 @@
               $res = mysqli_query($conn,$query);
 
               if($res){
+                $query = "select id_usuario from usuarios where nome_usuario = '$nome'";
+
+                $res = mysqli_query($conn,$query);
+                $dados = mysqli_fetch_array($res);
+                $_SESSION['id_usuario'] = $dados['id_usuario'];
                 header("Location: ./sistema.php");
                 $_SESSION['logado'] = true;
               }else{

@@ -41,7 +41,9 @@
             </thead>
             <tbody>
                 <?php
-                    $query = "select * from produtos";
+                    $id_usuario = $_SESSION['id_usuario'];
+
+                    $query = "select * from produtos where id_usuario = '$id_usuario'";
 
                     $res = mysqli_query($conn,$query);
             

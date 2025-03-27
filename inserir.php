@@ -23,11 +23,11 @@
             $quantidade = mysqli_escape_string($conn,$_POST['quantidade']);
             $preco = mysqli_escape_string($conn,$_POST['preco']);
 
-            $query = "insert into produtos (nome_produto,descricao_produto,quantidade,preco_produto) values ('$nome','$descricao','$quantidade','$preco')";
+            $id_usuario = $_SESSION['id_usuario'];
+
+            $query = "insert into produtos (nome_produto,descricao_produto,quantidade,preco_produto,id_usuario) values ('$nome','$descricao','$quantidade','$preco','$id_usuario')";
 
             $res = mysqli_query($conn,$query);
-
-            echo $res;
 
             if($res){
                 header("Location: ./sistema.php?produto=Produto inserido com sucesso!");
