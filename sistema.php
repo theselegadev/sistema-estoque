@@ -27,6 +27,18 @@
             <?php
         }
     ?>
+    <?php
+        if(isset($_GET['excluir'])){
+            ?>
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                    <?php echo $_GET['excluir']?>   
+                    <a href="./sistema.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+                </div>
+            </div>
+            <?php
+        }
+    ?>
     <div class="container">
         <table class="table table-striped table-hover mt-5">
             <thead>
@@ -56,7 +68,7 @@
                                 <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                 <td>
                                     <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
-                                    <button class="btn btn-info">Atualizar</button>
+                                    <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Atualizar</a>
                                 </td>
                             </tr>
                         <?php
