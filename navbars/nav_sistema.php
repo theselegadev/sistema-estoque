@@ -17,9 +17,9 @@
     <div class="row">
         <div class="col-9">
             <div class="row">
-                <form class="d-flex" role="search">
+                <form class="d-flex" role="search" action="./pesquisa.php" method="post">
                     <div class="col-7">
-                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                        <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search" name="pesquisa" required>
                     </div>
                     <div class="col-1">
 

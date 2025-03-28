@@ -12,6 +12,10 @@
         include "./conexao.php";
         session_start();
 
+        if(empty($_SESSION['logado'])){
+            header("Location: ./index.php");
+        }
+
         if(isset($_GET['id'])){
             $id = $_GET['id'];
 
