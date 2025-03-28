@@ -48,6 +48,16 @@
             </div>
             <?php
         }
+        if(isset($_GET['erro-pesquisa'])){
+            ?>
+            <div class="container">
+                <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <?php echo $_GET['erro-pesquisa']?>   
+                    <a href="./sistema.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+                </div>
+            </div>
+            <?php
+        }
     ?>
     <div class="container">
         <table class="table table-striped table-hover mt-5">
