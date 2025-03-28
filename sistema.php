@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de estoque | Home</title>
     <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="modal.css">
 </head>
 <body>
     <?php
@@ -96,6 +97,18 @@
                 ?>
             </tbody>
         </table>
+    </div>
+    <div class="modal-delete">
+        <div class="header-modal">
+            <h2>Atenção</h2>
+        </div>
+        <div class="body-modal">
+            <p>Tem certeza que deseja deletar?</p>
+        </div>
+        <div class="footer-modal">
+            <button class="btn btn-secondary">Cancelar</button>
+            <a href="" class="btn btn-danger">Deletar</a>
+        </div>
     </div>
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
