@@ -88,28 +88,29 @@
                                 <td><?php echo $dados['QUANTIDADE']?></td>
                                 <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                 <td>
-                                    <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
+                                    <button class="btn btn-danger" id="btn-deletar">Deletar</button>
                                     <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Atualizar</a>
                                 </td>
                             </tr>
+                            <div class="modal-delete" id="modal-delete">
+                                <div class="header-modal">
+                                    <h2>Atenção</h2>
+                                </div>
+                                <div class="body-modal">
+                                    <p>Tem certeza que deseja deletar?</p>
+                                </div>
+                                <div class="footer-modal">
+                                    <button class="btn btn-secondary">Cancelar</button>
+                                    <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
+                                </div>
+                            </div>
                         <?php
                     }
                 ?>
             </tbody>
         </table>
     </div>
-    <div class="modal-delete">
-        <div class="header-modal">
-            <h2>Atenção</h2>
-        </div>
-        <div class="body-modal">
-            <p>Tem certeza que deseja deletar?</p>
-        </div>
-        <div class="footer-modal">
-            <button class="btn btn-secondary">Cancelar</button>
-            <a href="" class="btn btn-danger">Deletar</a>
-        </div>
-    </div>
     <script src="./bootstrap.bundle.min.js"></script>
+    <script src="./modal.js"></script>
 </body>
 </html>
