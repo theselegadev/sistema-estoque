@@ -100,7 +100,7 @@
                                     <p>Tem certeza que deseja deletar?</p>
                                 </div>
                                 <div class="footer-modal">
-                                    <button class="btn btn-secondary">Cancelar</button>
+                                    <button class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
                                     <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
                                 </div>
                             </div>
