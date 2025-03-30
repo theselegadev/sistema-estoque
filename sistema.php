@@ -64,12 +64,11 @@
         <table class="table table-striped table-hover mt-5">
             <thead>
                 <tr>
+                    <th>#Id</th>
                     <th>Nome:</th>
                     <th>Descricao:</th>
                     <th>Quantidade:</th>
                     <th>Preço:</th>
-                    <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -83,6 +82,7 @@
                     while($dados = mysqli_fetch_array($res)){
                         ?>
                             <tr>
+                                <td><?php echo $dados['ID_PRODUTO']?></td>
                                 <td><?php echo $dados['NOME_PRODUTO']?></td>
                                 <td><?php echo $dados['DESCRICAO_PRODUTO']?></td>
                                 <td><?php echo $dados['QUANTIDADE']?></td>

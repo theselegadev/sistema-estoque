@@ -10,6 +10,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="./inserir.php">Inserir produto</a></li>
                     <li><a class="dropdown-item" href="./sistema.php">Lista de produtos</a></li>
+                    <li><a class="dropdown-item" href="./venda.php">Painel de venda</a></li>
+                    <li><a class="dropdown-item" href="">Dados de venda</a></li>
                 </ul>
             </div>
         </div>

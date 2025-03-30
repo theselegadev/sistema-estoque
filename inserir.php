@@ -47,28 +47,36 @@
                 <?php
             }
         ?>
-        <form action="./inserir.php" method="post" class="mt-5">
-            <div class="mb-4">
-                <h3>Inserir produto:</h3>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7">
+                <form action="./inserir.php" method="post" class="mt-5">
+                    <div class="mb-4">
+                        <h3>Inserir produto:</h3>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Nome:</span>
+                        <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1" name="nome" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Descrição:</span>
+                        <input type="text" class="form-control" placeholder="Descrição" aria-label="Username" aria-describedby="basic-addon1" name="descricao" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Quantidade:</span>
+                        <input type="number" class="form-control" placeholder="Quantidade" aria-label="Username" aria-describedby="basic-addon1" name="quantidade" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Preço:</span>
+                        <input type="number" class="form-control" placeholder="Preço" aria-label="Username" aria-describedby="basic-addon1" step="0.01" name="preco" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Inserir</button>
+                </form>
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Nome:</span>
-                <input type="text" class="form-control" placeholder="Nome" aria-label="Username" aria-describedby="basic-addon1" name="nome" required>
+            <div class="col-2">
+
             </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Descrição:</span>
-                <input type="text" class="form-control" placeholder="Descrição" aria-label="Username" aria-describedby="basic-addon1" name="descricao" required>
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Quantidade:</span>
-                <input type="number" class="form-control" placeholder="Quantidade" aria-label="Username" aria-describedby="basic-addon1" name="quantidade" required>
-            </div>
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">Preço:</span>
-                <input type="number" class="form-control" placeholder="Preço" aria-label="Username" aria-describedby="basic-addon1" step="0.01" name="preco" required>
-            </div>
-            <button type="submit" class="btn btn-success">Inserir</button>
-        </form>
+        </div>
     </div>
     <script src="./bootstrap.bundle.min.js"></script>
 </body>
