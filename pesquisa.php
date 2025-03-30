@@ -23,7 +23,6 @@
         if(isset($_POST['pesquisa'])){
             $pesquisa = mysqli_escape_string($conn,$_POST['pesquisa']);
             $id_usuario = $_SESSION['id_usuario'];
-            echo $id_usuario;
 
             $query = "select * from produtos where nome_produto like '%$pesquisa%' and id_usuario = '$id_usuario' or descricao_produto like '%$pesquisa%' and id_usuario = '$id_usuario'";
 
@@ -36,11 +35,11 @@
                             <table class="table table-striped table-hover mt-3">
                                 <thead>
                                     <tr>
+                                        <th>#Id</th>
                                         <th>Nome:</th>
                                         <th>Descricao:</th>
                                         <th>Quantidade:</th>
                                         <th>Preço:</th>
-                                        <th></th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -49,6 +48,7 @@
                                         while($dados = mysqli_fetch_array($res)){
                                             ?>
                                                 <tr>
+                                                    <td><?php echo $dados['ID_PRODUTO']?></td>
                                                     <td><?php echo $dados['NOME_PRODUTO']?></td>
                                                     <td><?php echo $dados['DESCRICAO_PRODUTO']?></td>
                                                     <td><?php echo $dados['QUANTIDADE']?></td>

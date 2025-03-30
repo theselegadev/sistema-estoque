@@ -16,6 +16,11 @@
         if(empty($_SESSION['logado'])){
             header("Location: ./index.php");
         }
+        $id_usuario = $_SESSION['id_usuario'];
+
+        $query = "delete from produtos where quantidade = 0 and id_usuario = '$id_usuario'";
+
+        $res = mysqli_query($conn,$query);
 
         if(isset($_GET['produto'])){
             ?>
@@ -49,6 +54,16 @@
             </div>
             <?php
         }
+        if(isset($_GET['venda'])){
+            ?>
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                    <?php echo $_GET['venda']?>   
+                    <a href="./sistema.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+                </div>
+            </div>
+            <?php
+        }
         if(isset($_GET['erro-pesquisa'])){
             ?>
             <div class="container">
@@ -69,12 +84,11 @@
                     <th>Descricao:</th>
                     <th>Quantidade:</th>
                     <th>Preço:</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                    $id_usuario = $_SESSION['id_usuario'];
-
                     $query = "select * from produtos where id_usuario = '$id_usuario'";
 
                     $res = mysqli_query($conn,$query);
