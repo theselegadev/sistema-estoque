@@ -51,9 +51,23 @@
                     $res = mysqli_query($conn,$query);
 
                     if($res){
-                        header("Location: ./sistema.php?venda=Venda feita com sucesso!");
-                    }else{
-                        echo "erro";
+                        $query = "select id_produto from produtos where id_produto = '$produto' or nome_produto = '$produto'";
+
+                        $res = mysqli_query($conn,$query);
+
+                        $dados = mysqli_fetch_array($res);
+
+                        $produto = $dados['id_produto'];
+                        $quantidade_vendida = mysqli_escape_string($conn,$_POST['quantidade']);
+                        $data = mysqli_escape_string($conn,$_POST['data']);
+
+                        $query = "insert into venda_produtos (id_produto,quantidade_venda_produtos,data_venda_produtos) values ('$produto','$quantidade_vendida','$data')";
+
+                        $res = mysqli_query($conn,$query);
+
+                        if($res){
+                            header("Location: ./sistema.php?venda=Venda feita com sucesso!");
+                        }
                     }
                 }
             }

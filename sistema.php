@@ -18,10 +18,6 @@
         }
         $id_usuario = $_SESSION['id_usuario'];
 
-        $query = "delete from produtos where quantidade = 0 and id_usuario = '$id_usuario'";
-
-        $res = mysqli_query($conn,$query);
-
         if(isset($_GET['produto'])){
             ?>
             <div class="container">
