@@ -60,6 +60,16 @@
             </div>
             <?php
         }
+        if(isset($_GET['alerta'])){
+            ?>
+            <div class="container">
+                <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <?php echo $_GET['alerta']?>   
+                    <a href="./sistema.php"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></a>
+                </div>
+            </div>
+            <?php
+        }
         if(isset($_GET['erro-pesquisa'])){
             ?>
             <div class="container">
@@ -99,7 +109,8 @@
                                 <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                 <td>
                                     <button class="btn btn-danger" id="btn-deletar">Deletar</button>
-                                    <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Atualizar</a>
+                                    <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-primary">Atualizar</a>
+                                    <a href="./venda.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Vender</a>
                                 </td>
                             </tr>
                             <div class="modal-delete" id="modal-delete">
