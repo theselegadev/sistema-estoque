@@ -54,20 +54,25 @@
                                                     <td><?php echo $dados['QUANTIDADE']?></td>
                                                     <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                                     <td>
-                                                        <button class="btn btn-danger" id="btn-deletar">Deletar</button>
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Deletar</button>
                                                         <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Atualizar</a>
                                                     </td>
                                                 </tr>
-                                                <div class="modal-delete" id="modal-delete">
-                                                    <div class="header-modal">
-                                                        <h2>Atenção</h2>
-                                                    </div>
-                                                    <div class="body-modal">
-                                                        <p>Tem certeza que deseja deletar?</p>
-                                                    </div>
-                                                    <div class="footer-modal">
-                                                        <button class="btn btn-secondary" id="btn-cancelar">Cancelar</button>
-                                                        <a href="deletar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-danger">Deletar</a>
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header" style="background-color: rgb(240, 238, 238);">
+                                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Atenção</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Atenção tem certeza que deseja deletar esse item?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                            <a href="./deletar.php?id=<?php echo $dados['ID_PRODUTO']?>"><button type="button" class="btn btn-danger" data-bs-dismiss="modal">Deletar</button></a>
+                                                        </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             <?php    
