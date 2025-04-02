@@ -64,7 +64,23 @@
                         $res = mysqli_query($conn,$query);
 
                         if($res){
-                            header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
+                            $query = "select id_venda_produtos,(quantidade_venda_produtos * (select preco_produto from produtos where id_produto = '$id')) from venda_produtos where id_produto = '$id'";
+
+                            $res = mysqli_query($conn,$query);
+
+                            if($res){
+                                $dados = mysqli_fetch_array($res);
+                                $id_venda = $dados['id_venda_produtos'];
+                                $valor_total = $dados[1];
+
+                                $query = "insert into historico_venda_produtos (id_venda_produtos,valor_total) values ('$id_venda', '$valor_total')";
+
+                                $res = mysqli_query($conn,$query);
+
+                                if($res){
+                                    header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
+                                }
+                            }
                         }
                     }
                 }
