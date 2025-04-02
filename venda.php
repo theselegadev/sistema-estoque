@@ -43,6 +43,7 @@
         if(isset($_POST['quantidade'])){
             $id = $_POST['id'];
             $quantidade = mysqli_escape_string($conn,$_POST['quantidade']);
+            $data = mysqli_escape_string($conn,$_POST['data']);
             $query = "select quantidade from produtos where id_produto = '$id' and id_usuario = '$id_usuario'";
 
             $res = mysqli_query($conn,$query);
@@ -58,7 +59,13 @@
                     $res = mysqli_query($conn,$query);
 
                     if($res){
-                        header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
+                        $query = "insert into venda_produtos (id_produto,quantidade_venda_produtos,data_venda_produtos) values ('$id', '$quantidade' , '$data')";
+
+                        $res = mysqli_query($conn,$query);
+
+                        if($res){
+                            header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
+                        }
                     }
                 }
             }
