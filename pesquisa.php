@@ -55,7 +55,8 @@
                                                     <td><?php echo $dados['PRECO_PRODUTO']?></td>
                                                     <td>
                                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Deletar</button>
-                                                        <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Atualizar</a>
+                                                        <a href="./atualizar.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-primary">Atualizar</a>
+                                                        <a href="./venda.php?id=<?php echo $dados['ID_PRODUTO']?>" class="btn btn-success">Vender</a>
                                                     </td>
                                                 </tr>
                                                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
