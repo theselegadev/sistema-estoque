@@ -44,12 +44,13 @@
             $id = $_POST['id'];
             $quantidade = mysqli_escape_string($conn,$_POST['quantidade']);
             $data = mysqli_escape_string($conn,$_POST['data']);
-            $query = "select quantidade from produtos where id_produto = '$id' and id_usuario = '$id_usuario'";
+            $query = "select quantidade, preco_produto from produtos where id_produto = '$id' and id_usuario = '$id_usuario'";
 
             $res = mysqli_query($conn,$query);
 
             if($res){
                 $dados = mysqli_fetch_array($res);
+                $preco_produto = $dados['preco_produto'];
                 $quant_db = $dados['quantidade'];
 
                 if($quant_db < $quantidade){
@@ -59,28 +60,13 @@
                     $res = mysqli_query($conn,$query);
 
                     if($res){
-                        $query = "insert into venda_produtos (id_produto,quantidade_venda_produtos,data_venda_produtos) values ('$id', '$quantidade' , '$data')";
+                        $valor_total = $quantidade * $preco_produto;
+                        $query = "insert into venda_produtos (id_produto,quantidade_venda_produtos,data_venda_produtos, valor_total) values ('$id', '$quantidade' , '$data', '$valor_total')";
 
                         $res = mysqli_query($conn,$query);
 
                         if($res){
-                            $query = "select id_venda_produtos,(quantidade_venda_produtos * (select preco_produto from produtos where id_produto = '$id')) from venda_produtos where id_produto = '$id'";
-
-                            $res = mysqli_query($conn,$query);
-
-                            if($res){
-                                $dados = mysqli_fetch_array($res);
-                                $id_venda = $dados['id_venda_produtos'];
-                                $valor_total = $dados[1];
-
-                                $query = "insert into historico_venda_produtos (id_venda_produtos,valor_total) values ('$id_venda', '$valor_total')";
-
-                                $res = mysqli_query($conn,$query);
-
-                                if($res){
-                                    header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
-                                }
-                            }
+                            header("Location: ./sistema.php?venda=Venda realizada com sucesso!");
                         }
                     }
                 }
