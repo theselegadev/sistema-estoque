@@ -18,15 +18,25 @@
             header("Location: ./index.php");
         }
 
-        $query = "select p.nome_produto, vp.data_venda_produtos, vp.quantidade_venda_produtos, vp.valor_total from venda_produtos vp, produtos p where vp.id_produto = p.id_produto and p.id_usuario = '$id_usuario'";
+        $query = "select vp.data_venda_produtos, sum(vp.valor_total) from produtos p, venda_produtos vp where vp.data_venda_produtos = vp.data_venda_produtos and p.id_usuario = '$id_usuario';";
 
         $res = mysqli_query($conn,$query);
 
+        $dados = mysqli_fetch_all($res);
+
         if($res){
-            while($dados = mysqli_fetch_array($res)){
+            $query = "select distinct p.nome_produto from produtos p, venda_produtos vp where p.id_produto = vp.id_produto and vp.data_venda_produtos = vp.data_venda_produtos and p.id_usuario = '$id_usuario'";
+
+            $resultado = mysqli_query($conn,$query);
+
+            if($resultado){
+                $nomes = mysqli_fetch_all($resultado);
+
+                array_push($dados,$nomes);
+                
                 echo "<pre>";
                 print_r($dados);
-                echo "</pre>";
+                echo "<pre>";
             }
         }
     ?>
