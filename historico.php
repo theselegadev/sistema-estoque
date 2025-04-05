@@ -18,26 +18,25 @@
             header("Location: ./index.php");
         }
 
-        $query = "select vp.data_venda_produtos, sum(vp.valor_total) from produtos p, venda_produtos vp where vp.data_venda_produtos = vp.data_venda_produtos and p.id_usuario = '$id_usuario';";
+        $query = "select vp.data_venda_produtos, sum(vp.valor_total) as total_vendido, group_concat(distinct p.nome_produto separator ', ') as produtos_vendidos from venda_produtos vp join produtos p on p.id_produto = vp.id_produto where p.id_usuario = '$id_usuario'
+        group by vp.data_venda_produtos;";
 
         $res = mysqli_query($conn,$query);
 
-        $dados = mysqli_fetch_all($res);
-
         if($res){
-            $query = "select distinct p.nome_produto from produtos p, venda_produtos vp where p.id_produto = vp.id_produto and vp.data_venda_produtos = vp.data_venda_produtos and p.id_usuario = '$id_usuario'";
-
-            $resultado = mysqli_query($conn,$query);
-
-            if($resultado){
-                $nomes = mysqli_fetch_all($resultado);
-
-                array_push($dados,$nomes);
-                
-                echo "<pre>";
-                print_r($dados);
-                echo "<pre>";
-            }
+            ?> 
+                <ul>
+                    <?php
+                        while($dados = mysqli_fetch_array($res)){
+                            ?>
+                                <li><?php echo $dados['data_venda_produtos']?></li>
+                                <li><?php echo $dados['total_vendido']?></li>
+                                <li><?php echo $dados['produtos_vendidos']?></li>
+                            <?php
+                        }
+                    ?>
+                </ul> 
+            <?php
         }
     ?>
     <script src="./bootstrap.bundle.min.js"></script>
