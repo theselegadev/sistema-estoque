@@ -25,17 +25,30 @@
 
         if($res){
             ?> 
-                <ul>
-                    <?php
-                        while($dados = mysqli_fetch_array($res)){
-                            ?>
-                                <li><?php echo $dados['data_venda_produtos']?></li>
-                                <li><?php echo $dados['total_vendido']?></li>
-                                <li><?php echo $dados['produtos_vendidos']?></li>
-                            <?php
-                        }
-                    ?>
-                </ul> 
+                <div class="container">
+                    <table class="table table-hover mt-5">
+                        <thead>
+                            <tr>
+                                <th>Data da venda</th>
+                                <th>Produtos vendidos</th>
+                                <th>Valor total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                            while($dados = mysqli_fetch_array($res)){
+                                ?>
+                                    <tr>
+                                        <td><?php echo date('d/m/y',strtotime($dados['data_venda_produtos']))?></td>
+                                        <td><?php echo $dados['produtos_vendidos']?></td>
+                                        <td><?php echo $dados['total_vendido']?></td>
+                                    </tr>
+                                <?php
+                            }
+                        ?>
+                        </tbody>
+                    </table> 
+                </div>
             <?php
         }
     ?>
