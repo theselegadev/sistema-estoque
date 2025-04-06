@@ -26,6 +26,27 @@
         if($res){
             ?> 
                 <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <ul class="list-group mt-4">
+                                <li class="list-group-item">
+                                    <form action="">
+                                        <div class="mt-2 mb-3">
+                                            <h5>Pesquisa histórico:</h2>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <input class="form-control me-2" type="search" placeholder="Pesquisar data" aria-label="Search" name="pesquisa" required>
+                                            </div>
+                                            <div class="offset-1 col-4">
+                                                <button type="submit" class="btn btn-success">Pesquisar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <table class="table table-striped table-hover mt-5">
                         <thead>
                             <tr>
