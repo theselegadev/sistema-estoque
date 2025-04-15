@@ -8,3 +8,49 @@ form{
     border: 1px solid gray;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.288);
 }
+section{
+    height: 100vh;
+    width: 100vw;
+}
+main{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+}
+.left{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rigth{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    width: 90%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+}
+.card-text h2{
+    font-size: large;
+    font-weight: 400;
+    color: rgb(83, 83, 83);
+    margin-top: 5px;
+}
+.card-text{
+    background-color: rgba(192, 211, 216, 0.445);
+    padding: 10px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+.card-details h5{
+    color: rgb(61, 60, 60);
+}

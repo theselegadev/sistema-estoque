@@ -22,10 +22,10 @@
             <a href="./inscrever.php"><button class="btn btn-primary" type="submit">Inscrever</button></a>
         </div>
         <div class="col">
-
+            <a href="entrar.php"><button class="btn btn-outline-success" type="submit">Entrar</button></a>
         </div>
         <div class="col">
-            <a href="entrar.php"><button class="btn btn-outline-success" type="submit">Entrar</button></a>
+          
         </div>
       </div>
     </div>
